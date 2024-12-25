@@ -1,0 +1,97 @@
+<%- include ('../views/partials/header.ejs') %>
+<div class="football">
+  <div class="upper-part">
+    
+    <div class="leagues">
+      <form action="/league" method="post" id="leagues">
+        <button class="league-btn" name="league" value="PL">
+          <img src="https://media.api-sports.io/football/leagues/39.png" alt="premier league" />
+        </button>
+        <button class="league-btn" name="league" value="PD">
+          <img src="https://media.api-sports.io/football/leagues/140.png"alt="laliga" />
+        </button>
+        <button class="league-btn" name="league" value="CL">
+          <img src="https://crests.football-data.org/CL.png" alt="Champions League" />
+        </button>
+        <button class="league-btn" name="league" value="BL1">
+          <img src="https://crests.football-data.org/BL1.png" alt="bundesliga" />
+        </button>
+        <button class="league-btn" name="league" value="SA">
+          <img src="https://crests.football-data.org/SA.png" alt="serieA" />
+        </button>
+      </form>
+    </div>
+
+    <div class="teams">
+      <form action="/teams" method="post" id="teams">
+        <button class="team-btn" name="team" value="86">
+          <img src="/images/real-madrid.png" alt="Real Madrid" />
+        </button>
+        <button class="team-btn" name="team" value="65">
+          <img src="/images/man utd.png" alt="MAU" />
+        </button>
+        <button class="team-btn" name="team" value="64">
+          <img src="/images/liverpool.png" alt="LFC" />
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="lower-part">
+    <div class="content">
+      <div class="table">
+        <% if(locals.table) { %>
+          <h3 class="table-header">&nbsp;&ensp;&ensp;&ensp;
+            <span>Club</span>
+            <span>MP</span>
+            <span>W</span>
+            <span>D</span>
+            <span>L</span>
+            <span>GF</span>
+            <span>GA</span>
+            <span>GD</span>
+            <span>P</span>
+        </h3>
+          <div class="table-body">
+            <% table.forEach(element => { %> 
+              <div class="table-row">
+                <span class="position"><%= element.position %></span>
+                <img src="<%= element.team.crest %>" alt="<%= element.team.name %>" class="standing-image" />
+                <span class="team-name"><%= element.team.name %></span>
+                <span><%= element.playedGames %></span>
+                <span><%= element.won %></span>
+                <span><%= element.draw %></span>
+                <span><%= element.lost %></span>
+                <span><%= element.goalsFor %></span>
+                <span><%= element.goalsAgainst %></span>
+                <span><%= element.goalDifference %></span>
+                <span><%= element.points %></span>
+              </div>
+            <% }); %> 
+          </div>
+          <% } %>    
+      </div>
+      <div class="stats">
+        <% if(locals.scorers) { %>
+          <h3><span>Name</span> <span>Goals</span></h3>
+          <% scorers.forEach ( score => { %>
+            <p>
+              <span class="name"><img src="<%= score.team.crest %>" alt="<%= score.team.name %>" class="stats-team"><%= score.player.name %></span>
+              <span><%= score.goals %></span>
+            </p>
+          <% }) %>
+      <% } %>
+      </div>
+      
+      <div class="matches">
+        <% if(locals.matches) { %>
+          <% matches.forEach(match => { %>
+            <img src="<%= matches.homeTeam.crest %>" alt="homeTeam">
+            <img src="<%= matches.awayTeam.crest %>" alt="awayTeam" >
+          <% }) %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include ('../views/partials/footer.ejs') %>

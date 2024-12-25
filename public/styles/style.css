@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    background-color: #f0f0e7;
+}
+body {
+    overflow-x: hidden;
+    font-family: "Quicksand", sans-serif;
+
+}
+.icons{
+    position: fixed;
+}
+.football {
+    position: relative;
+    left: 300px;
+    top: 250px;
+}
+.icn-btn, .league-btn, .team-btn {
+    border: none;
+    border-right: 1px solid #000;
+    padding: 2px;
+    margin: 2px;
+}
+.icn-btn > img , .league-btn > img , .team-btn > img{
+    width: 60px;
+    height: 60px;
+    transition: transform 0.2 ease;
+}
+
+.icn-btn:hover > img, .league-btn:hover > img, .team-btn:hover > img {
+    transform: scale(1.1);
+}
+.league-btn, .team-btn {
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.upper-part {
+    display: flex;
+    gap: 200px;
+}
+
+#leagues, #teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+.standing-image{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.table {
+    flex: 2;
+    max-width: 50%;
+}
+.stats {
+    flex: 1;
+    max-width: 20%;
+    position: relative;
+    left: -25%;
+}
+.table, .stats {
+    padding: 10px; /* Keep it minimal */
+    margin: 0; /* Remove unnecessary outer margins */
+}
+
+.table-body .table-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+.table-row .position {
+    width: 1%;
+    text-align: center;
+}
+.table-row img.standing-image {
+    width: 30px;
+    height: 30px;
+    margin-right: 0.5px;
+}
+.table-row .team-name {
+    width: 35%;
+    text-align: center;
+}
+.table-row span {
+    flex: 1;
+    text-align: center;
+}
+
+.table-header {
+    font-weight: bold;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.stats h3 {
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.stats p {
+    display: flex;
+    justify-content: space-between; 
+    padding: 5px 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #ddd; /
+}
+.stats p:last-child {
+    border-bottom: none; 
+}
+h3 span{
+    background-color: #000;
+}
+.stats-team{
+    width: 30px;
+    margin: 2px;
+}
+
+.name {
+    font-size: 20px;
+}
