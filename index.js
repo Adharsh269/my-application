@@ -53,21 +53,19 @@ app.post("/league", async (req, res) => {
 
 app.post("/teams", async (req, res) => {
     try {
-        console.log(req.body);
         const id = parseInt(req.body.team, 10); 
-        console.log(id);
         if (isNaN(id)) {
             return res.status(400).send({ error: "Invalid team ID format" });
         }
-
-        // Call the Football Data API
         const result = await axios.get(`https://api.football-data.org/v4/teams/${id}/matches`, {
             headers: {
                 "X-Auth-Token": API_KEY,
             },
         });
-
-        res.send(result.data);
+        const matches = result.data.matches;
+        res.render("football.ejs", {
+            matches : matches,
+        });
     } catch (error) {
         console.error("Error fetching matches:", error.message);
         res.status(500).send({ error: "Failed to fetch matches from the API" });

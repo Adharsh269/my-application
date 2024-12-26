@@ -8,19 +8,54 @@
 body {
     overflow-x: hidden;
     font-family: "Quicksand", sans-serif;
+    height: 100vh;
 
 }
+nav {
+    height: 8vh;
+    background-color: #333;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px calc((100vw-1300px)/2);
+}
+
+.nav_items a{
+    background-color: #333;
+    text-decoration: none;
+    color: #f0f0e7;
+    padding:  2rem;
+}
+
+.nav_items a:hover{
+    color: #fff;
+    transition: ease-in-out 0.2s;
+}
+
+.logo > h1{
+    background-color: #333;
+    color: #f0f0e7;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+}
 .icons{
+    margin-top: 8vh;
     position: fixed;
 }
 .football {
     position: relative;
     left: 300px;
-    top: 250px;
+    top: 200px;
 }
 .icn-btn, .league-btn, .team-btn {
     border: none;
-    border-right: 1px solid #000;
+    border-right: 1px solid #333;
     padding: 2px;
     margin: 2px;
 }
@@ -116,7 +151,7 @@ p {
 .table-header {
     font-weight: bold;
     text-align: center;
-    background-color: #000;
+    background-color: #333;
     color: #fff;
     padding: 10px;
     display: flex;
@@ -129,7 +164,7 @@ p {
     text-align: left;
     margin-bottom: 10px;
     font-size: 1.2rem;
-    background-color: #000;
+    background-color: #333;
     color: #fff;
     padding: 10px;
     display: flex;
@@ -142,13 +177,13 @@ p {
     justify-content: space-between; 
     padding: 5px 0;
     font-size: 0.95rem;
-    border-bottom: 1px solid #ddd; /
+    border-bottom: 1px solid #ddd; 
 }
 .stats p:last-child {
     border-bottom: none; 
 }
 h3 span{
-    background-color: #000;
+    background-color: #333;
 }
 .stats-team{
     width: 30px;
@@ -157,4 +192,57 @@ h3 span{
 
 .name {
     font-size: 20px;
+}
+
+.matches {
+    height: auto;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 70%;
+    overflow-y: auto;
+}
+
+.match {
+    width: 20%;
+    display: grid;
+    grid-template: 3 / 5;
+    border: 1px solid #ddd; 
+    margin-bottom: 5px;
+}
+
+#competition_name {
+    grid-area: 1 / span 5 ;
+    justify-self: center;
+    margin-bottom: 1px;
+    padding: 1px;
+}
+
+#date {
+    grid-area: 2 / span 5;
+    justify-self: center;
+    margin: 4px;
+}
+
+#date , #competition_name{
+    font-weight: normal;
+    font-size: 20px;
+}
+#awayTeamScore, #homeTeamScore, #colon {
+    font-weight: normal;
+    font-size: 40px;
+}
+
+#awayTeamCrest, #homeTeamCrest {
+    width: 60px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    top: 35%;
+    height: 20vh;
 }

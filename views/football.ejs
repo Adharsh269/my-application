@@ -27,7 +27,7 @@
         <button class="team-btn" name="team" value="86">
           <img src="/images/real-madrid.png" alt="Real Madrid" />
         </button>
-        <button class="team-btn" name="team" value="65">
+        <button class="team-btn" name="team" value="66">
           <img src="/images/man utd.png" alt="MAU" />
         </button>
         <button class="team-btn" name="team" value="64">
@@ -81,17 +81,24 @@
           <% }) %>
       <% } %>
       </div>
-      
-      <div class="matches">
-        <% if(locals.matches) { %>
-          <% matches.forEach(match => { %>
-            <img src="<%= matches.homeTeam.crest %>" alt="homeTeam">
-            <img src="<%= matches.awayTeam.crest %>" alt="awayTeam" >
-          <% }) %>
-        <% } %>
-      </div>
+    </div>
+    <div class="matches">
+      <% if(locals.matches) { %>
+        <% matches.forEach(match => { %>
+            <section class="match">
+              <span id="competition_name"><%= match.competition.name %></span>
+              <span id="date"><%= match.utcDate.slice(0,10) %></span>
+              <img src="<%= match.homeTeam.crest %>" alt="homeTeam" id="homeTeamCrest">
+              <span id="homeTeamScore"><%= match.score.fullTime.home %></span>
+              <span id="colon">:</span>
+              <span id="awayTeamScore"><%= match.score.fullTime.away %></span>
+              <img src="<%= match.awayTeam.crest %>" alt="awayTeam" id="awayTeamCrest">
+            </section>
+        <% }) %>
+      <% } %>
     </div>
   </div>
+  
 </div>
 
 <%- include ('../views/partials/footer.ejs') %>
