@@ -1,13 +1,16 @@
 import express from "express";
 import axios from "axios";
+import env from "dotenv";
+
 const app = express();
 const port = 3000;
+env.config();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static("public"));
 
-const API_KEY = "ad50eea3790842a1bbfd9c612cb3ad93";
+const API_KEY = process.env.API_KEY;
 
 app.get("/", (req, res) => {
     res.render("index.ejs");
