@@ -307,11 +307,11 @@ h3 span{
         align-items: center;
     }
     .table{
-        width: 1000px;
+        width: auto;
         max-width: 100%;
     }
     .stats{
-        width: 500px;
+        width: auto;
         max-width: 90%;
         left: 0;
     }
